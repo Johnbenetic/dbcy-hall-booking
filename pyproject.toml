@@ -1,9 +1,9 @@
 [project]
 name = "hallbooking_app"
 authors = [
-    { name = "DBC", email = "johnbenetic@dbcyelagiri.edu.in"}
+    { name = "JB", email = "johnbenetic@dbcyelagiri.edu.in"}
 ]
-description = "Its a DBC Hall Booking App"
+description = "Hall Bookign for DBCY"
 requires-python = ">=3.14"
 readme = "README.md"
 dynamic = ["version"]

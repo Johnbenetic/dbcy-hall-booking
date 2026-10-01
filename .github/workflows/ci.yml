@@ -3,11 +3,11 @@ name: CI
 on:
   push:
     branches:
-      - hall-booking
+      - version-16
   pull_request:
 
 concurrency:
-  group: hall-booking-hallbooking_app-${{ github.event.number }}
+  group: version-16-hallbooking_app-${{ github.event.number }}
   cancel-in-progress: true
 
 jobs:

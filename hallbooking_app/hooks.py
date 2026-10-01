@@ -1,7 +1,7 @@
 app_name = "hallbooking_app"
 app_title = "Hallbooking App"
-app_publisher = "DBC"
-app_description = "Its a DBC Hall Booking App"
+app_publisher = "JB"
+app_description = "Hall Bookign for DBCY"
 app_email = "johnbenetic@dbcyelagiri.edu.in"
 app_license = "mit"
 
