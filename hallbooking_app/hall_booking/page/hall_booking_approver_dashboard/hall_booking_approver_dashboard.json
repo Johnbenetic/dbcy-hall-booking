@@ -1,0 +1,22 @@
+{
+ "content": null,
+ "creation": "2026-10-05 22:41:17.825",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-10-05 22:41:17.825",
+ "modified_by": "Administrator",
+ "module": "Hall Booking",
+ "name": "hall-booking-approver-dashboard",
+ "owner": "Administrator",
+ "page_name": "hall-booking-approver-dashboard",
+ "roles": [
+  {
+   "role": "Hall Booking Approver"
+  }
+ ],
+ "standard": "No",
+ "style": null,
+ "system_page": 0,
+ "title": "Hall Booking Approver Dashboard"
+}

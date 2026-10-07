@@ -1,0 +1,124 @@
+{
+ "doctype": "Workspace",
+ "name": "Hall Booking",
+ "label": "Hall Booking",
+ "title": "Hall Booking",
+ "module": "Hall Booking",
+ "app": "hallbooking_app",
+ "type": "Workspace",
+ "public": 1,
+ "is_hidden": 0,
+ "for_user": "",
+ "parent_page": "",
+ "icon": "calendar",
+ "indicator_color": "blue",
+ "sequence_id": 20,
+ "hide_custom": 0,
+ "content": "[{\"id\":\"hall-booking-brand\",\"type\":\"paragraph\",\"data\":{\"text\":\"<h3><b>DON BOSCO COLLEGE</b></h3><p>YELAGIRI HILLS</p><p><b>Hall Booking Management System</b></p>\",\"col\":12}},{\"id\":\"hall-booking-intro\",\"type\":\"paragraph\",\"data\":{\"text\":\"A central place to submit, review, and manage institutional hall bookings securely and efficiently.\",\"col\":12}},{\"id\":\"faculty-heading\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>FACULTY</b></span>\",\"col\":12}},{\"id\":\"faculty-new-request\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Booking Request\",\"col\":3}},{\"id\":\"faculty-my-requests\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Bookings\",\"col\":3}},{\"id\":\"faculty-availability\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hall Availability\",\"col\":3}},{\"id\":\"faculty-calendar\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Booking Calendar\",\"col\":3}},{\"id\":\"approver-heading\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>APPROVER</b></span>\",\"col\":12}},{\"id\":\"approver-dashboard\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Approver Dashboard\",\"col\":3}},{\"id\":\"approver-pending\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Requests\",\"col\":3}},{\"id\":\"approver-today\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Today's Bookings\",\"col\":3}},{\"id\":\"approver-upcoming\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Upcoming Bookings\",\"col\":3}},{\"id\":\"approver-calendar\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Calendar\",\"col\":3}},{\"id\":\"approver-availability\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hall Availability\",\"col\":3}},{\"id\":\"approver-reports-heading\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\"><b>REPORTS</b></span>\",\"col\":12}},{\"id\":\"approver-daily-report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Daily Report\",\"col\":3}},{\"id\":\"approver-monthly-report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Monthly Report\",\"col\":3}},{\"id\":\"approver-department-report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department-wise Report\",\"col\":3}},{\"id\":\"administrator-heading\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>ADMINISTRATOR</b></span>\",\"col\":12}},{\"id\":\"administrator-halls\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Halls\",\"col\":3}},{\"id\":\"administrator-all-requests\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Booking Requests\",\"col\":3}},{\"id\":\"administrator-availability\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hall Availability\",\"col\":3}},{\"id\":\"administrator-calendar\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Calendar\",\"col\":3}},{\"id\":\"administrator-reports-heading\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\"><b>REPORTS</b></span>\",\"col\":12}},{\"id\":\"administrator-daily-report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Daily Report\",\"col\":3}},{\"id\":\"administrator-monthly-report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Monthly Report\",\"col\":3}},{\"id\":\"administrator-department-report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department-wise Report\",\"col\":3}},{\"id\":\"administrator-usage-report\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hall Usage\",\"col\":3}}]",
+ "roles": [
+  {
+   "role": "Faculty"
+  },
+  {
+   "role": "Hall Booking Approver"
+  },
+  {
+   "role": "Hall Booking Administrator"
+  }
+ ],
+ "shortcuts": [
+  {
+   "label": "New Hall Booking Request",
+   "type": "DocType",
+   "link_to": "Hall Booking Request",
+   "doc_view": "New",
+   "color": "#2490ef"
+  },
+  {
+   "label": "My Booking Requests",
+   "type": "DocType",
+   "link_to": "Hall Booking Request",
+   "doc_view": "List",
+   "stats_filter": "[[\"owner\", \"=\", frappe.session.user]]",
+   "color": "#2490ef"
+  },
+  {
+   "label": "Booking Calendar",
+   "type": "DocType",
+   "link_to": "Hall Booking Request",
+   "doc_view": "Calendar",
+   "color": "#2490ef"
+  },
+  {
+   "label": "Hall Availability",
+   "type": "Page",
+   "link_to": "hall-availability",
+   "color": "#2490ef"
+  },
+  {
+   "label": "Approver Dashboard",
+   "type": "Page",
+   "link_to": "hall-booking-approver-dashboard",
+   "color": "#2490ef"
+  },
+  {
+   "label": "Pending Booking Requests",
+   "type": "DocType",
+   "link_to": "Hall Booking Request",
+   "doc_view": "List",
+   "stats_filter": "[[\"status\", \"=\", \"Requested\"]]",
+   "color": "#f39c12"
+  },
+  {
+   "label": "Daily Hall Booking Report",
+   "type": "Report",
+   "link_to": "Daily Hall Booking Report",
+   "report_ref_doctype": "Hall Booking Request",
+   "is_query_report": 0,
+   "color": "#2490ef"
+  },
+  {
+   "label": "Monthly Hall Booking Report",
+   "type": "Report",
+   "link_to": "Monthly Hall Booking Report",
+   "report_ref_doctype": "Hall Booking Request",
+   "is_query_report": 0,
+   "color": "#2490ef"
+  },
+  {
+   "label": "Department-wise Booking Report",
+   "type": "Report",
+   "link_to": "Department-wise Booking Report",
+   "report_ref_doctype": "Hall Booking Request",
+   "is_query_report": 0,
+   "color": "#2490ef"
+  },
+  {
+   "label": "Halls",
+   "type": "DocType",
+   "link_to": "Hall",
+   "doc_view": "List",
+   "color": "#2490ef"
+  },
+  {
+   "label": "All Hall Booking Requests",
+   "type": "DocType",
+   "link_to": "Hall Booking Request",
+   "doc_view": "List",
+   "color": "#2490ef"
+  },
+  {
+   "label": "Hall Usage Report",
+   "type": "Report",
+   "link_to": "Hall Usage Report",
+   "report_ref_doctype": "Hall Booking Request",
+   "is_query_report": 0,
+   "color": "#2490ef"
+  }
+ ],
+ "links": [],
+ "charts": [],
+ "number_cards": [],
+ "quick_lists": [],
+ "custom_blocks": []
+}

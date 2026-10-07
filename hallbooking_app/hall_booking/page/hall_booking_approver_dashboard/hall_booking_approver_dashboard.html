@@ -1,0 +1,235 @@
+<div class="page-content">
+	<div class="container-fluid dashboard-container">
+		<p class="dashboard-subtitle">Review and manage hall booking requests</p>
+
+		<!-- Header Section -->
+		<div class="dashboard-header">
+			<div class="row align-items-center">
+				<div class="col-md-6">
+					<p class="text-muted mb-0">
+						Logged in as: <strong id="user-full-name">Loading...</strong>
+					</p>
+				</div>
+				<div class="col-md-6 text-right">
+					<button class="btn btn-primary btn-sm" id="refresh-btn">
+						<i class="fa fa-refresh"></i> Refresh
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Summary Cards -->
+		<div class="row mt-4">
+			<div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+				<div class="dashboard-card card-pending">
+					<div class="card-body">
+						<div class="card-icon">
+							<i class="fa fa-hourglass-half"></i>
+						</div>
+						<div class="card-number" id="pending-count">0</div>
+						<div class="card-label">Pending Requests</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+				<div class="dashboard-card card-approved">
+					<div class="card-body">
+						<div class="card-icon">
+							<i class="fa fa-check-circle"></i>
+						</div>
+						<div class="card-number" id="approved-count">0</div>
+						<div class="card-label">Approved</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+				<div class="dashboard-card card-rejected">
+					<div class="card-body">
+						<div class="card-icon">
+							<i class="fa fa-times-circle"></i>
+						</div>
+						<div class="card-number" id="rejected-count">0</div>
+						<div class="card-label">Rejected</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+				<div class="dashboard-card card-todays">
+					<div class="card-body">
+						<div class="card-icon">
+							<i class="fa fa-calendar"></i>
+						</div>
+						<div class="card-number" id="todays-count">0</div>
+						<div class="card-label">Today&#39;s Bookings</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+				<div class="dashboard-card card-upcoming">
+					<div class="card-body">
+						<div class="card-icon">
+							<i class="fa fa-arrow-right"></i>
+						</div>
+						<div class="card-number" id="upcoming-count">0</div>
+						<div class="card-label">Upcoming Bookings</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Pending Requests Section -->
+		<div class="row mt-4">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h5 class="mb-0">Pending Booking Requests</h5>
+					</div>
+					<div class="card-body p-0">
+						<div id="pending-requests-table" class="table-responsive">
+							<table class="table table-hover mb-0">
+								<thead class="table-light">
+									<tr>
+										<th>Request</th>
+										<th>Booking Date</th>
+										<th>Hall</th>
+										<th>Start Time</th>
+										<th>End Time</th>
+										<th>Faculty Name</th>
+										<th>Department</th>
+										<th>Programme</th>
+										<th>Students</th>
+										<th>Status</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody id="pending-tbody">
+									<tr><td colspan="11" class="text-center text-muted py-4">Loading...</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="no-pending" class="text-center text-muted py-4" style="display:none;">
+							No pending booking requests at this time.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bookings for Today Section -->
+		<div class="row mt-4">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h5 class="mb-0">Today&#39;s Bookings</h5>
+					</div>
+					<div class="card-body p-0">
+						<div id="todays-bookings-table" class="table-responsive">
+							<table class="table table-hover mb-0">
+								<thead class="table-light">
+									<tr>
+										<th>Hall</th>
+										<th>Booking Date</th>
+										<th>Start Time</th>
+										<th>End Time</th>
+										<th>Faculty Name</th>
+										<th>Department</th>
+										<th>Programme</th>
+										<th>Students</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody id="todays-tbody">
+									<tr><td colspan="9" class="text-center text-muted py-4">Loading...</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="no-todays" class="text-center text-muted py-4" style="display:none;">
+							No bookings scheduled for today.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Upcoming Bookings Section -->
+		<div class="row mt-4">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h5 class="mb-0">Upcoming Bookings (Next 10)</h5>
+					</div>
+					<div class="card-body p-0">
+						<div id="upcoming-bookings-table" class="table-responsive">
+							<table class="table table-hover mb-0">
+								<thead class="table-light">
+									<tr>
+										<th>Request</th>
+										<th>Booking Date</th>
+										<th>Hall</th>
+										<th>Start Time</th>
+										<th>End Time</th>
+										<th>Faculty Name</th>
+										<th>Department</th>
+										<th>Programme</th>
+										<th>Students</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody id="upcoming-tbody">
+									<tr><td colspan="10" class="text-center text-muted py-4">Loading...</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="no-upcoming" class="text-center text-muted py-4" style="display:none;">
+							No upcoming bookings scheduled.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hall Availability Summary -->
+		<div class="row mt-4">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h5 class="mb-0">Hall Availability Today</h5>
+					</div>
+					<div class="card-body p-0">
+						<div class="table-responsive">
+							<table class="table table-hover mb-0">
+								<thead class="table-light">
+									<tr>
+										<th>Hall Name</th>
+										<th>Hall Code</th>
+										<th>Capacity</th>
+										<th>Today&#39;s Bookings</th>
+									</tr>
+								</thead>
+								<tbody id="hall-tbody">
+									<tr><td colspan="4" class="text-center text-muted py-4">Loading...</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Navigation Buttons -->
+		<div class="row mt-4 mb-4">
+			<div class="col-12">
+				<button class="btn btn-secondary" id="view-all-btn">
+					<i class="fa fa-list"></i> View All Booking Requests
+				</button>
+				<button class="btn btn-secondary" id="calendar-btn">
+					<i class="fa fa-calendar"></i> Booking Calendar
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

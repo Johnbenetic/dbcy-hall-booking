@@ -1,0 +1,325 @@
+.page-head,
+.page-header,
+.page-title,
+[data-page-route="List/Hall Booking Request"],
+[data-page-route="List/Hall"] {
+    --dbc-blue: #163d7a;
+    --dbc-gold: #c4a76a;
+    --dbc-surface: #f5f7fb;
+    --dbc-surface-alt: #ffffff;
+    --dbc-border: #dfe5ef;
+    --dbc-text: #1d2a3a;
+    --dbc-muted: #66768a;
+    --dbc-success: #2e7d5f;
+    --dbc-warning: #b7791f;
+    --dbc-danger: #b23c3c;
+}
+
+body {
+    background: var(--dbc-surface);
+    color: var(--dbc-text);
+}
+
+.page-head {
+    border-bottom: 1px solid var(--dbc-border);
+    background: var(--dbc-surface-alt);
+}
+
+.my-hall-bookings,
+.hall-availability-page,
+.dashboard-container {
+    padding: 12px 0 24px;
+}
+
+.my-bookings-header,
+.availability-heading,
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 18px 20px;
+    background: linear-gradient(180deg, rgba(22, 61, 122, 0.04), rgba(22, 61, 122, 0.01));
+    border: 1px solid var(--dbc-border);
+    border-radius: 8px;
+}
+
+.my-bookings-eyebrow,
+.availability-eyebrow,
+.dashboard-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dbc-blue);
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.my-bookings-header h2,
+.availability-heading h2,
+.dashboard-container h2,
+.dashboard-container h3,
+.dashboard-container h4 {
+    margin: 0;
+    color: var(--dbc-blue);
+    font-weight: 700;
+}
+
+.my-bookings-header p,
+.availability-heading p,
+.dashboard-subtitle {
+    margin: 6px 0 0;
+    color: var(--dbc-muted);
+}
+
+.booking-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.summary-card {
+    background: var(--dbc-surface-alt);
+    border: 1px solid var(--dbc-border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 1px 2px rgba(17, 24, 39, 0.03);
+}
+
+.summary-card span {
+    color: var(--dbc-muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.summary-card strong {
+    font-size: 28px;
+    color: var(--dbc-blue);
+    line-height: 1.1;
+}
+
+.booking-filters,
+.availability-search {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+    padding: 16px 18px;
+    background: var(--dbc-surface-alt);
+    border: 1px solid var(--dbc-border);
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.booking-filter,
+.availability-field {
+    min-width: 160px;
+    flex: 1;
+}
+
+.booking-filter label,
+.availability-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--dbc-text);
+}
+
+.form-control,
+input,
+select,
+textarea {
+    border: 1px solid var(--dbc-border) !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+}
+
+.btn-primary {
+    background: var(--dbc-blue);
+    border-color: var(--dbc-blue);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #123462;
+    border-color: #123462;
+}
+
+.btn-default {
+    border-color: var(--dbc-border);
+    color: var(--dbc-text);
+}
+
+.my-bookings-table-wrap,
+.availability-table-wrap,
+.table-responsive {
+    background: var(--dbc-surface-alt);
+    border: 1px solid var(--dbc-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.my-bookings-table,
+.availability-table,
+.table {
+    margin-bottom: 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.my-bookings-table thead th,
+.availability-table thead th,
+.table thead th {
+    background: #edf2fb;
+    color: var(--dbc-blue);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.my-bookings-table td,
+.availability-table td,
+.table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-top: 1px solid var(--dbc-border);
+}
+
+.booking-status,
+.availability-status,
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 76px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.booking-status-requested,
+.badge-light,
+.availability-status-available {
+    background: rgba(22, 61, 122, 0.08);
+    color: var(--dbc-blue);
+}
+
+.booking-status-approved,
+.badge-info {
+    background: rgba(46, 125, 95, 0.12);
+    color: var(--dbc-success);
+}
+
+.booking-status-rejected,
+.availability-status-unavailable {
+    background: rgba(178, 60, 60, 0.1);
+    color: var(--dbc-danger);
+}
+
+.booking-status-completed {
+    background: rgba(196, 167, 106, 0.12);
+    color: var(--dbc-warning);
+}
+
+.dashboard-card {
+    background: var(--dbc-surface-alt);
+    border: 1px solid var(--dbc-border);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+    min-height: 128px;
+}
+
+.dashboard-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.card-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(22, 61, 122, 0.08);
+    color: var(--dbc-blue);
+}
+
+.card-number {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--dbc-blue);
+    line-height: 1.1;
+}
+
+.card-label {
+    color: var(--dbc-muted);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.card-pending .card-icon { background: rgba(196, 167, 106, 0.12); color: var(--dbc-warning); }
+.card-approved .card-icon { background: rgba(46, 125, 95, 0.12); color: var(--dbc-success); }
+.card-rejected .card-icon { background: rgba(178, 60, 60, 0.12); color: var(--dbc-danger); }
+.card-todays .card-icon { background: rgba(22, 61, 122, 0.12); color: var(--dbc-blue); }
+.card-upcoming .card-icon { background: rgba(22, 61, 122, 0.08); color: var(--dbc-blue); }
+
+.availability-results,
+.booking-filters,
+.my-bookings-empty,
+.availability-empty,
+.card {
+    background: var(--dbc-surface-alt);
+    border: 1px solid var(--dbc-border);
+    border-radius: 8px;
+}
+
+.availability-group-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0 10px;
+}
+
+.availability-group-count {
+    color: var(--dbc-blue);
+    background: rgba(22, 61, 122, 0.07);
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.empty-state-icon {
+    color: var(--dbc-gold);
+    font-size: 28px;
+}
+
+@media (max-width: 768px) {
+    .my-bookings-header,
+    .availability-heading,
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booking-summary {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+    }
+}

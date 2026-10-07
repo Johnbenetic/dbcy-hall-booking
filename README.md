@@ -1,6 +1,6 @@
-### Hallbooking App
+### Hall Booking Management System
 
-Hall Bookign for DBCY
+Don Bosco College, Yelagiri Hills
 
 ### Installation
 

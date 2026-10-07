@@ -1,0 +1,13 @@
+{
+ "doctype": "Page",
+ "module": "Hall Booking",
+ "name": "my-hall-bookings",
+ "page_name": "my-hall-bookings",
+ "roles": [
+  {
+   "role": "Faculty"
+  }
+ ],
+ "standard": "Yes",
+ "title": "My Hall Bookings"
+}

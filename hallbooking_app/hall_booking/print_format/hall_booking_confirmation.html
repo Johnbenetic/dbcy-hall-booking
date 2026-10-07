@@ -1,0 +1,208 @@
+<style>
+	@page {
+		size: A4;
+		margin: 15mm;
+	}
+
+	.booking-confirmation {
+		color: #202b3a;
+		font-family: Arial, sans-serif;
+		font-size: 10pt;
+		line-height: 1.45;
+	}
+
+	.booking-confirmation h1,
+	.booking-confirmation h2,
+	.booking-confirmation p {
+		margin: 0;
+	}
+
+	.college-header {
+		border-bottom: 2px solid #263b55;
+		margin-bottom: 18px;
+		padding-bottom: 12px;
+		text-align: center;
+	}
+
+	.college-name {
+		color: #263b55;
+		font-size: 16pt;
+		font-weight: 700;
+		letter-spacing: 0.4px;
+	}
+
+	.document-title {
+		font-size: 12pt;
+		font-weight: 700;
+		letter-spacing: 1px;
+		margin-top: 6px !important;
+	}
+
+	.section-title {
+		border-bottom: 1px solid #9aa8b7;
+		color: #263b55;
+		font-size: 10pt;
+		margin: 17px 0 7px !important;
+		padding-bottom: 4px;
+		text-transform: uppercase;
+	}
+
+	.booking-confirmation table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	.booking-confirmation th,
+	.booking-confirmation td {
+		border: 1px solid #cbd3dc;
+		padding: 7px 8px;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	.booking-confirmation th {
+		background: #f1f4f7;
+		font-weight: 600;
+		width: 22%;
+	}
+
+	.signature-table {
+		margin-top: 42px;
+	}
+
+	.signature-table td {
+		border: 0 !important;
+		padding: 28px 12px 4px 0 !important;
+		text-align: center !important;
+		vertical-align: bottom !important;
+		width: 50%;
+	}
+
+	.signature-line {
+		border-top: 1px solid #536273;
+		display: block;
+		margin: 0 auto 6px;
+		max-width: 220px;
+		padding-top: 6px;
+	}
+
+	.document-footer {
+		border-top: 1px solid #cbd3dc;
+		color: #657181;
+		font-size: 8pt;
+		margin-top: 28px;
+		padding-top: 7px;
+		text-align: center;
+	}
+
+	@media print {
+		.booking-confirmation {
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+		}
+
+		.section-title {
+			page-break-after: avoid;
+		}
+	}
+</style>
+
+<div class="booking-confirmation">
+	<header class="college-header">
+		<h1 class="college-name">DON BOSCO COLLEGE (CO-ED), YELAGIRI HILLS</h1>
+		<p class="document-title">HALL BOOKING CONFIRMATION</p>
+	</header>
+
+	<h2 class="section-title">Booking Information</h2>
+	<table>
+		<tbody>
+			<tr>
+				<th>Request No.</th>
+				<td>{{ doc.name | e }}</td>
+				<th>Booking Date</th>
+				<td>{{ doc.booking_date or "" }}</td>
+			</tr>
+			<tr>
+				<th>Hall</th>
+				<td colspan="3">{{ doc.hall | e }}</td>
+			</tr>
+			<tr>
+				<th>Start Time</th>
+				<td>{{ doc.start_time or "" }}</td>
+				<th>End Time</th>
+				<td>{{ doc.end_time or "" }}</td>
+			</tr>
+			<tr>
+				<th>Faculty Name</th>
+				<td>{{ (doc.faculty_name or "") | e }}</td>
+				<th>Department</th>
+				<td>{{ (doc.department or "") | e }}</td>
+			</tr>
+			<tr>
+				<th>Year</th>
+				<td>{{ (doc.year or "") | e }}</td>
+				<th>Programme</th>
+				<td>{{ (doc.programme or "") | e }}</td>
+			</tr>
+			<tr>
+				<th>Number of Students</th>
+				<td colspan="3">{{ doc.number_of_students or 0 }}</td>
+			</tr>
+			<tr>
+				<th>Purpose</th>
+				<td colspan="3">{{ (doc.purpose or "") | e }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2 class="section-title">Approval Information</h2>
+	<table>
+		<tbody>
+			<tr>
+				<th>Status</th>
+				<td colspan="3">{{ doc.status | e }}</td>
+			</tr>
+			{% if doc.status in ["Approved", "Completed"] %}
+			<tr>
+				<th>Approved By</th>
+				<td>{{ (doc.approved_by or "") | e }}</td>
+				<th>Approved On</th>
+				<td>{{ doc.approved_on or "" }}</td>
+			</tr>
+			{% endif %}
+			{% if doc.status == "Rejected" %}
+			<tr>
+				<th>Rejection Reason</th>
+				<td colspan="3">{{ (doc.rejection_reason or "Not provided") | e }}</td>
+			</tr>
+			{% endif %}
+			{% if doc.remarks %}
+			<tr>
+				<th>Remarks</th>
+				<td colspan="3">{{ doc.remarks | e }}</td>
+			</tr>
+			{% endif %}
+		</tbody>
+	</table>
+
+	<table class="signature-table">
+		<tbody>
+			<tr>
+				<td>
+					<span class="signature-line">Requested By</span>
+					<span>Date: __________________</span>
+				</td>
+				{% if doc.status in ["Approved", "Completed"] %}
+				<td>
+					<span class="signature-line">Approved By</span>
+					<span>Date: __________________</span>
+				</td>
+				{% endif %}
+			</tr>
+		</tbody>
+	</table>
+
+	<footer class="document-footer">
+		DON BOSCO COLLEGE (CO-ED), YELAGIRI HILLS &nbsp;|&nbsp; Hall Booking Request {{ doc.name | e }}
+	</footer>
+</div>

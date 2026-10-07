@@ -1,0 +1,101 @@
+[
+	{
+		"doctype": "Notification",
+		"name": "Hall Booking Request - New Request",
+		"enabled": 1,
+		"channel": "System Notification",
+		"document_type": "Hall Booking Request",
+		"event": "New",
+		"condition_type": "Python",
+		"condition": "doc.status == 'Requested' and frappe.db.exists('Has Role', {'parent': doc.owner, 'role': 'Faculty'})",
+		"notification_type": "Alert",
+		"notification_title": "New Hall Booking Request",
+		"notification_message": "Request ID: {{ doc.name }}\nFaculty Name: {{ doc.faculty_name }}\nDepartment: {{ doc.department }}\nProgramme: {{ doc.programme }}\nHall: {{ doc.hall }}\nBooking Date: {{ doc.booking_date }}\nStart Time: {{ doc.start_time }}\nEnd Time: {{ doc.end_time }}\nNumber of Students: {{ doc.number_of_students }}\nPurpose: {{ doc.purpose }}",
+		"recipients": [
+			{
+				"doctype": "Notification Recipient",
+				"receiver_by_role": "Hall Booking Approver"
+			}
+		]
+	},
+	{
+		"doctype": "Notification",
+		"name": "Hall Booking Request - Approved",
+		"enabled": 1,
+		"channel": "System Notification",
+		"document_type": "Hall Booking Request",
+		"event": "Value Change",
+		"value_changed": "status",
+		"condition_type": "Python",
+		"condition": "doc.status == 'Approved'",
+		"notification_type": "Alert",
+		"notification_title": "Hall Booking Approved",
+		"notification_message": "Request ID: {{ doc.name }} was approved.\nHall: {{ doc.hall }}\nBooking Date: {{ doc.booking_date }}\nStart Time: {{ doc.start_time }}\nEnd Time: {{ doc.end_time }}\nApprover: {{ frappe.db.get_value('User', doc.approved_by or doc.modified_by, 'full_name') or doc.approved_by or doc.modified_by }}",
+		"recipients": [
+			{
+				"doctype": "Notification Recipient",
+				"receiver_by_document_field": "requested_by"
+			}
+		]
+	},
+	{
+		"doctype": "Notification",
+		"name": "Hall Booking Request - Rejected",
+		"enabled": 1,
+		"channel": "System Notification",
+		"document_type": "Hall Booking Request",
+		"event": "Value Change",
+		"value_changed": "status",
+		"condition_type": "Python",
+		"condition": "doc.status == 'Rejected'",
+		"notification_type": "Alert",
+		"notification_title": "Hall Booking Rejected",
+		"notification_message": "Request ID: {{ doc.name }} was rejected.\nHall: {{ doc.hall }}\nBooking Date: {{ doc.booking_date }}\nRejection Reason: {{ doc.rejection_reason or 'Not provided' }}\nApprover: {{ frappe.db.get_value('User', doc.approved_by or doc.modified_by, 'full_name') or doc.approved_by or doc.modified_by }}",
+		"recipients": [
+			{
+				"doctype": "Notification Recipient",
+				"receiver_by_document_field": "requested_by"
+			}
+		]
+	},
+	{
+		"doctype": "Notification",
+		"name": "Hall Booking Request - Cancelled",
+		"enabled": 1,
+		"channel": "System Notification",
+		"document_type": "Hall Booking Request",
+		"event": "Value Change",
+		"value_changed": "status",
+		"condition_type": "Python",
+		"condition": "doc.status == 'Cancelled'",
+		"notification_type": "Alert",
+		"notification_title": "Hall Booking Cancelled",
+		"notification_message": "Request ID: {{ doc.name }} has been cancelled.\nHall: {{ doc.hall }}\nBooking Date: {{ doc.booking_date }}\nStart Time: {{ doc.start_time }}\nEnd Time: {{ doc.end_time }}",
+		"recipients": [
+			{
+				"doctype": "Notification Recipient",
+				"receiver_by_document_field": "requested_by"
+			}
+		]
+	},
+	{
+		"doctype": "Notification",
+		"name": "Hall Booking Request - Completed",
+		"enabled": 1,
+		"channel": "System Notification",
+		"document_type": "Hall Booking Request",
+		"event": "Value Change",
+		"value_changed": "status",
+		"condition_type": "Python",
+		"condition": "doc.status == 'Completed'",
+		"notification_type": "Alert",
+		"notification_title": "Hall Booking Completed",
+		"notification_message": "Request ID: {{ doc.name }} is completed.\nHall: {{ doc.hall }}\nBooking Date: {{ doc.booking_date }}\nStart Time: {{ doc.start_time }}\nEnd Time: {{ doc.end_time }}",
+		"recipients": [
+			{
+				"doctype": "Notification Recipient",
+				"receiver_by_document_field": "requested_by"
+			}
+		]
+	}
+]

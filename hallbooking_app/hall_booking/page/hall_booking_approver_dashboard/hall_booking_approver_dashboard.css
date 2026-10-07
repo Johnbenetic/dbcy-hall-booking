@@ -1,0 +1,432 @@
+/* Copyright (c) 2026, JB and contributors */
+
+.dashboard-container {
+	background-color: #fafbfc;
+	padding: 20px 0;
+}
+
+.dashboard-subtitle {
+	margin: 0 0 20px;
+	color: #888;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.dashboard-header {
+	background-color: white;
+	padding: 20px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	border: 1px solid #e3e5e7;
+}
+
+/* Summary Cards */
+.dashboard-card {
+	background-color: white;
+	border: 1px solid #e3e5e7;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	cursor: default;
+	height: 100%;
+}
+
+.dashboard-card:hover {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	transform: translateY(-2px);
+}
+
+.dashboard-card .card-body {
+	padding: 20px;
+	text-align: center;
+}
+
+.dashboard-card .card-icon {
+	font-size: 32px;
+	margin-bottom: 10px;
+	color: #999;
+	display: block;
+}
+
+.dashboard-card .card-number {
+	font-size: 32px;
+	font-weight: 600;
+	margin: 10px 0;
+	color: #2c3e50;
+}
+
+.dashboard-card .card-label {
+	font-size: 12px;
+	color: #888;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-weight: 500;
+}
+
+/* Card status colors */
+.dashboard-card.card-pending .card-icon {
+	color: #f39c12;
+}
+
+.dashboard-card.card-pending .card-number {
+	color: #e67e22;
+}
+
+.dashboard-card.card-approved .card-icon {
+	color: #27ae60;
+}
+
+.dashboard-card.card-approved .card-number {
+	color: #229954;
+}
+
+.dashboard-card.card-rejected .card-icon {
+	color: #e74c3c;
+}
+
+.dashboard-card.card-rejected .card-number {
+	color: #c0392b;
+}
+
+.dashboard-card.card-todays .card-icon {
+	color: #3498db;
+}
+
+.dashboard-card.card-todays .card-number {
+	color: #2980b9;
+}
+
+.dashboard-card.card-upcoming .card-icon {
+	color: #9b59b6;
+}
+
+.dashboard-card.card-upcoming .card-number {
+	color: #8e44ad;
+}
+
+/* Tables */
+.table-responsive {
+	background-color: white;
+	border-radius: 0;
+}
+
+.table {
+	font-size: 13px;
+}
+
+.table thead th {
+	background-color: #f9fafb;
+	border-bottom: 2px solid #e3e5e7;
+	font-weight: 600;
+	color: #2c3e50;
+	padding: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-size: 11px;
+}
+
+.table tbody tr {
+	border-bottom: 1px solid #e8eaed;
+}
+
+.table tbody tr:hover {
+	background-color: #f9fafb;
+}
+
+.table tbody td {
+	padding: 12px;
+	vertical-align: middle;
+	color: #34495e;
+}
+
+.table tbody strong {
+	color: #2c3e50;
+	font-weight: 600;
+}
+
+.table .badge {
+	font-size: 11px;
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.badge-warning {
+	background-color: #fff3cd;
+	color: #856404;
+}
+
+.badge-success {
+	background-color: #d4edda;
+	color: #155724;
+}
+
+.badge-danger {
+	background-color: #f8d7da;
+	color: #721c24;
+}
+
+.badge-info {
+	background-color: #d1ecf1;
+	color: #0c5460;
+}
+
+.badge-light {
+	background-color: #e9ecef;
+	color: #383d41;
+}
+
+.badge-secondary {
+	background-color: #e2e3e5;
+	color: #383d41;
+}
+
+.badge i {
+	margin-right: 4px;
+}
+
+/* Buttons */
+.btn-primary {
+	background-color: #5e72e4;
+	border-color: #5e72e4;
+	color: white;
+}
+
+.btn-primary:hover {
+	background-color: #4c63d2;
+	border-color: #4c63d2;
+}
+
+.btn-secondary {
+	background-color: #6c757d;
+	border-color: #6c757d;
+	color: white;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.btn-secondary:hover {
+	background-color: #5a6268;
+	border-color: #545b62;
+}
+
+.btn-xs {
+	padding: 4px 8px;
+	font-size: 11px;
+	border-radius: 3px;
+}
+
+.btn-primary.btn-xs {
+	background-color: #5e72e4;
+	border-color: #5e72e4;
+	padding: 4px 10px;
+}
+
+.btn-primary.btn-xs:hover {
+	background-color: #4c63d2;
+	border-color: #4c63d2;
+}
+
+.open-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.open-btn:hover {
+	text-decoration: none;
+}
+
+.open-btn i {
+	font-size: 10px;
+}
+
+/* Card container styling */
+.card {
+	border: 1px solid #e3e5e7;
+	border-radius: 4px;
+	background-color: white;
+	box-shadow: none;
+	margin-bottom: 20px;
+}
+
+.card-header {
+	background-color: #fafbfc;
+	border-bottom: 1px solid #e3e5e7;
+	padding: 15px 20px;
+	border-radius: 4px 4px 0 0;
+}
+
+.card-header h5 {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: #2c3e50;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.card-body {
+	padding: 20px;
+}
+
+/* Text utilities */
+.text-muted {
+	color: #888 !important;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.align-items-center {
+	align-items: center !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.dashboard-card .card-number {
+		font-size: 24px;
+	}
+
+	.table {
+		font-size: 12px;
+	}
+
+	.table thead th,
+	.table tbody td {
+		padding: 8px;
+	}
+
+	.btn-secondary {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.col-md-6 {
+		margin-bottom: 15px;
+	}
+}
+
+@media (max-width: 576px) {
+	.dashboard-card .card-icon {
+		font-size: 24px;
+	}
+
+	.dashboard-card .card-number {
+		font-size: 20px;
+	}
+
+	.dashboard-container {
+		padding: 10px 0;
+	}
+
+	.dashboard-header {
+		padding: 15px;
+		margin-bottom: 15px;
+	}
+
+	.table-responsive {
+		font-size: 11px;
+	}
+
+	.table thead th,
+	.table tbody td {
+		padding: 6px;
+	}
+
+	.badge {
+		font-size: 10px !important;
+		padding: 3px 6px !important;
+	}
+}
+
+/* Loading and empty states */
+.spinner {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 3px solid #e3e5e7;
+	border-radius: 50%;
+	border-top-color: #5e72e4;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+.py-4 {
+	padding-top: 24px !important;
+	padding-bottom: 24px !important;
+}
+
+.mb-0 {
+	margin-bottom: 0 !important;
+}
+
+.mb-2 {
+	margin-bottom: 8px !important;
+}
+
+.mb-3 {
+	margin-bottom: 16px !important;
+}
+
+.mb-4 {
+	margin-bottom: 24px !important;
+}
+
+.mt-4 {
+	margin-top: 24px !important;
+}
+
+.p-0 {
+	padding: 0 !important;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -12px;
+	margin-left: -12px;
+}
+
+.col-12,
+.col-sm-6,
+.col-md-4,
+.col-md-6,
+.col-lg-2 {
+	padding-right: 12px;
+	padding-left: 12px;
+}
+
+.col-12 { width: 100%; }
+
+@media (min-width: 576px) {
+	.col-sm-6 { width: 50%; }
+}
+
+@media (min-width: 768px) {
+	.col-md-4 { width: 33.333%; }
+	.col-md-6 { width: 50%; }
+}
+
+@media (min-width: 992px) {
+	.col-lg-2 { width: 16.666%; }
+}
+
+.container-fluid {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}

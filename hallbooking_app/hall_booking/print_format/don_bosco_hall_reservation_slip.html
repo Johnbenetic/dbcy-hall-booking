@@ -1,0 +1,285 @@
+<style>
+	@page {
+		size: A4 portrait;
+		margin: 12mm 12mm 10mm;
+	}
+
+	@media print {
+		body {
+			background: #fff !important;
+		}
+
+		.don-bosco-slip {
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+		}
+	}
+
+	.don-bosco-slip {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 10.5pt;
+		line-height: 1.45;
+		color: #1a1f2a;
+		background: #fff;
+	}
+
+	.don-bosco-slip .slip {
+		width: 100%;
+		max-width: 100%;
+		border: 1.5px solid #1a1f2a;
+		padding: 12px 14px 10px;
+		box-sizing: border-box;
+	}
+
+	.don-bosco-slip .title-block {
+		text-align: center;
+		padding-bottom: 8px;
+		border-bottom: 1.5px solid #1a1f2a;
+		margin-bottom: 12px;
+	}
+
+	.don-bosco-slip h1 {
+		margin: 0;
+		font-size: 20pt;
+		line-height: 1.2;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		color: #000;
+	}
+
+	.don-bosco-slip .campus-line {
+		font-size: 12pt;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		margin-top: 4px;
+	}
+
+	.don-bosco-slip .document-title {
+		font-size: 12pt;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		margin-top: 8px;
+		text-transform: uppercase;
+	}
+
+	.don-bosco-slip .hall-grid {
+		margin: 12px 0 10px;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3px 18px;
+	}
+
+	.don-bosco-slip .hall-option {
+		font-size: 10.5pt;
+		font-weight: 600;
+		padding: 2px 0;
+		color: #111827;
+	}
+
+	.don-bosco-slip .field-row {
+		display: flex;
+		gap: 12px;
+		margin-bottom: 8px;
+		align-items: baseline;
+	}
+
+	.don-bosco-slip .field-row .field {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.don-bosco-slip .field-row .field.wide {
+		flex: 2.2;
+	}
+
+	.don-bosco-slip .label {
+		font-weight: 700;
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	.don-bosco-slip .value-line {
+		display: inline-block;
+		border-bottom: 1px solid #3b4450;
+		min-height: 18px;
+		padding-bottom: 2px;
+		vertical-align: bottom;
+		min-width: 110px;
+	}
+
+	.don-bosco-slip .value-line.long {
+		min-width: 220px;
+	}
+
+	.don-bosco-slip .value-line.medium {
+		min-width: 170px;
+	}
+
+	.don-bosco-slip .approval-row {
+		margin-top: 8px;
+		padding-top: 4px;
+		border-top: 1px solid #1a1f2a;
+	}
+
+	.don-bosco-slip .signature-row {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		margin-top: 20px;
+		border-collapse: separate;
+		border-spacing: 14px 0;
+	}
+
+	.don-bosco-slip .signature-box {
+		display: table-cell;
+		width: 33.33%;
+		text-align: center;
+		vertical-align: bottom;
+		padding-top: 18px;
+	}
+
+	.don-bosco-slip .signature-line {
+		display: block;
+		border-top: 1.5px solid #1a1f2a;
+		margin: 0 auto 6px;
+		width: 90%;
+	}
+
+	.don-bosco-slip .signature-label {
+		font-size: 9.5pt;
+		font-weight: 600;
+		line-height: 1.4;
+	}
+
+	.don-bosco-slip .status-box {
+		font-weight: 700;
+		margin-top: 8px;
+		padding: 4px 0;
+	}
+
+	.don-bosco-slip .meta-note {
+		margin-top: 10px;
+		padding-top: 8px;
+		border-top: 1px solid #1a1f2a;
+		font-size: 8.5pt;
+		color: #1a1f2a;
+		text-align: center;
+	}
+</style>
+
+<div class="don-bosco-slip">
+	<div class="slip">
+		<div class="title-block">
+			<h1>DON BOSCO COLLEGE</h1>
+			<div class="campus-line">YELAGIRI HILLS</div>
+			<div class="document-title">PERMISSION / RESERVATION SLIP (✓)</div>
+		</div>
+
+		{% set hall_records = frappe.get_all("Hall", filters={"active": 1}, fields=["name", "hall_name", "hall_code"], order_by="hall_name asc") or [] %}
+		{% set selected_hall = doc.hall or "" %}
+		<ul class="hall-grid">
+			{% for hall in hall_records %}
+				{% set label = (hall.hall_name or hall.name or "") | upper %}
+				<li class="hall-option">{% if hall.name == selected_hall %}☑{% else %}☐{% endif %} {{ label }}</li>
+			{% endfor %}
+		</ul>
+
+		<div class="field-row">
+			<div class="field">
+				<span class="label">Date:</span>
+				<span class="value-line medium">{{ doc.booking_date or "" }}</span>
+			</div>
+		</div>
+
+		<div class="field-row">
+			<div class="field wide">
+				<span class="label">Name of the Faculty:</span>
+				<span class="value-line long">{{ (doc.faculty_name or frappe.db.get_value("User", doc.requested_by, "full_name") or "") | e }}</span>
+			</div>
+		</div>
+
+		<div class="field-row">
+			<div class="field">
+				<span class="label">Year:</span>
+				<span class="value-line">{{ (doc.year or "") | e }}</span>
+			</div>
+			<div class="field">
+				<span class="label">Dept:</span>
+				<span class="value-line medium">{{ (doc.department or "") | e }}</span>
+			</div>
+		</div>
+
+		<div class="field-row">
+			<div class="field">
+				<span class="label">Hour:</span>
+				<span class="value-line">{{ "" }}</span>
+			</div>
+			<div class="field wide">
+				<span class="label">Time:</span>
+				<span class="value-line medium">{{ (doc.start_time or "") | e }}</span>
+				<span class="label">to</span>
+				<span class="value-line medium">{{ (doc.end_time or "") | e }}</span>
+			</div>
+		</div>
+
+		<div class="field-row">
+			<div class="field wide">
+				<span class="label">Total No. of Students/Staff:</span>
+				<span class="value-line medium">{{ (doc.number_of_students or "") | e }}</span>
+			</div>
+		</div>
+
+		<div class="field-row">
+			<div class="field wide">
+				<span class="label">Programme:</span>
+				<span class="value-line long">{{ (doc.programme or "") | e }}</span>
+			</div>
+		</div>
+
+		{% if doc.purpose %}
+		<div class="field-row">
+			<div class="field wide">
+				<span class="label">Purpose:</span>
+				<span class="value-line long">{{ (doc.purpose or "") | e }}</span>
+			</div>
+		</div>
+		{% endif %}
+
+		{% if doc.status in ["Approved", "Completed"] %}
+		<div class="approval-row">
+			<div class="status-box"><span class="label">Status:</span> {{ doc.status | upper }}</div>
+			<div class="field-row">
+				<div class="field wide">
+					<span class="label">Approved By:</span>
+					<span class="value-line long">{{ (doc.approved_by or "") | e }}</span>
+				</div>
+			</div>
+			<div class="field-row">
+				<div class="field wide">
+					<span class="label">Approved On:</span>
+					<span class="value-line long">{{ (doc.approved_on or "") | e }}</span>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+
+		<div class="signature-row">
+			<div class="signature-box">
+				<span class="signature-line"></span>
+				<div class="signature-label">Signature of the Faculty</div>
+			</div>
+			<div class="signature-box">
+				<span class="signature-line"></span>
+				<div class="signature-label">Librarian-In-Charge</div>
+			</div>
+			<div class="signature-box">
+				<span class="signature-line"></span>
+				<div class="signature-label">Director – Arivagam</div>
+			</div>
+		</div>
+
+		<div class="meta-note">Hall Booking Request {{ doc.name | e }}</div>
+	</div>
+</div>

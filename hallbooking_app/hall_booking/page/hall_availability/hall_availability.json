@@ -1,0 +1,19 @@
+{
+ "doctype": "Page",
+ "module": "Hall Booking",
+ "name": "hall-availability",
+ "page_name": "hall-availability",
+ "roles": [
+  {
+   "role": "Faculty"
+  },
+  {
+   "role": "Hall Booking Approver"
+  },
+  {
+   "role": "Hall Booking Administrator"
+  }
+ ],
+ "standard": "Yes",
+ "title": "Hall Availability"
+}

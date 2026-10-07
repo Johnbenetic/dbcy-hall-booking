@@ -1,0 +1,232 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "autoincrement",
+ "creation": "2026-10-01 18:06:41.245111",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "booking_information_section",
+  "booking_date",
+  "hall",
+  "time_information_section",
+  "start_time",
+  "end_time",
+  "faculty_information_section",
+  "requested_by",
+  "faculty_name",
+  "department",
+  "year",
+  "programme_information_section",
+  "programme",
+  "number_of_students",
+  "purpose",
+  "approval_information_section",
+  "status",
+  "approved_by",
+  "approved_on",
+  "rejection_reason",
+  "additional_information_section",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Hall Booking Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "booking_information_section",
+   "fieldtype": "Section Break",
+   "label": "Booking Information"
+  },
+  {
+   "fieldname": "booking_date",
+   "fieldtype": "Date",
+   "label": "Booking Date"
+  },
+  {
+   "fieldname": "hall",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Hall",
+   "options": "Hall",
+   "reqd": 1
+  },
+  {
+   "fieldname": "time_information_section",
+   "fieldtype": "Section Break",
+   "label": "Time Information"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "End Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "faculty_information_section",
+   "fieldtype": "Section Break",
+   "label": "Faculty Information"
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Requested By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "faculty_name",
+   "fieldtype": "Data",
+   "label": "Faculty Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year"
+  },
+  {
+   "fieldname": "programme_information_section",
+   "fieldtype": "Section Break",
+   "label": "Programme Information"
+  },
+  {
+   "fieldname": "programme",
+   "fieldtype": "Data",
+   "label": "Programme",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_students",
+   "fieldtype": "Int",
+   "label": "Number of Students",
+   "reqd": 1
+  },
+  {
+   "description": "Regular Class\nSeminar\nWorkshop\nDepartment Meeting\nExamination\nStudent Activity",
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose"
+  },
+  {
+   "fieldname": "approval_information_section",
+   "fieldtype": "Section Break",
+   "label": "Approval Information"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Requested\nApproved\nRejected\nCancelled\nCompleted",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason"
+  },
+  {
+   "fieldname": "additional_information_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-10-07 18:11:31.469375",
+ "modified_by": "Administrator",
+ "module": "Hall Booking",
+ "name": "Hall Booking Request",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Faculty",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Hall Booking Approver",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Hall Booking Administrator",
+   "select": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

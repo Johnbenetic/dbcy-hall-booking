@@ -1,9 +1,30 @@
 app_name = "hallbooking_app"
-app_title = "Hallbooking App"
+app_title = "Hall Booking Management System"
 app_publisher = "JB"
-app_description = "Hall Bookign for DBCY"
+app_description = "Hall Booking Management System for Don Bosco College, Yelagiri Hills"
 app_email = "johnbenetic@dbcyelagiri.edu.in"
 app_license = "mit"
+
+fixtures = [
+	{
+		"dt": "Notification",
+		"filters": [
+			[
+				"name",
+				"in",
+				[
+					"Hall Booking Request - New Request",
+					"Hall Booking Request - Approved",
+					"Hall Booking Request - Rejected",
+					"Hall Booking Request - Cancelled",
+					"Hall Booking Request - Completed",
+				],
+			]
+		],
+	}
+]
+
+after_migrate = "hallbooking_app.hall_booking.print_format.setup.sync_hall_booking_print_formats"
 
 # Apps
 # ------------------
@@ -25,7 +46,7 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/hallbooking_app/css/hallbooking_app.css"
+app_include_css = "/assets/hallbooking_app/css/hallbooking_app.css"
 # app_include_js = "/assets/hallbooking_app/js/hallbooking_app.js"
 
 # include js, css files in header of web template
@@ -130,16 +151,16 @@ app_license = "mit"
 
 # Permissions
 # -----------
+
 # Permissions evaluated in scripted ways
+permission_query_conditions = {
+    "Hall Booking Request": "hallbooking_app.hall_booking.permissions.get_hall_booking_request_permission_query_conditions",
+}
 
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
-#
-# has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
-
+has_permission = {
+    "Hall Booking Request": "hallbooking_app.hall_booking.permissions.has_hall_booking_request_permission",
+    "Hall": "hallbooking_app.hall_booking.permissions.has_hall_permission",
+}
 # Document Events
 # ---------------
 # Hook on document methods and events
@@ -261,4 +282,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

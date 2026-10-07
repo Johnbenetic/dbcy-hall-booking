@@ -1,0 +1,96 @@
+<div class="hall-availability-page">
+	<div class="availability-heading">
+		<div class="availability-eyebrow">HALL BOOKING</div>
+		<h2>Hall Availability</h2>
+		<p>Find an active hall for your preferred date and time before submitting a booking request.</p>
+	</div>
+
+	<section class="availability-search">
+		<div class="availability-fields">
+			<div class="availability-field">
+				<div id="availability-booking-date"></div>
+			</div>
+			<div class="availability-field">
+				<div id="availability-start-time"></div>
+			</div>
+			<div class="availability-field">
+				<div id="availability-end-time"></div>
+			</div>
+			<div class="availability-field">
+				<div id="availability-minimum-capacity"></div>
+			</div>
+			<div class="availability-field availability-field-hall">
+				<div id="availability-hall"></div>
+			</div>
+		</div>
+
+		<div class="availability-actions">
+			<button class="btn btn-primary" id="check-hall-availability" type="button">
+				Check Availability
+			</button>
+			<button class="btn btn-default" id="clear-hall-availability" type="button">Clear</button>
+		</div>
+	</section>
+
+	<div id="availability-message" class="availability-message" role="status" aria-live="polite"></div>
+
+	<section id="availability-results" class="availability-results" style="display: none;">
+		<div class="availability-results-heading">
+			<div>
+				<div class="availability-eyebrow">SEARCH RESULTS</div>
+				<h3>Halls for your selected time</h3>
+			</div>
+			<div id="availability-result-count" class="availability-result-count"></div>
+		</div>
+
+		<div id="availability-no-halls" class="availability-empty" style="display: none;">
+			No active halls match these filters.
+		</div>
+
+		<section id="available-halls-section" class="availability-group" style="display: none;">
+			<div class="availability-group-heading">
+				<h4>Available Halls</h4>
+				<span class="availability-group-count" id="available-halls-count"></span>
+			</div>
+			<div class="availability-table-wrap">
+				<table class="availability-table">
+					<thead>
+						<tr>
+							<th>Hall Name</th>
+							<th>Hall Code</th>
+							<th>Capacity</th>
+							<th>Facilities</th>
+							<th>Availability</th>
+							<th>Existing Booking</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="available-halls-body"></tbody>
+				</table>
+			</div>
+		</section>
+
+		<section id="unavailable-halls-section" class="availability-group" style="display: none;">
+			<div class="availability-group-heading">
+				<h4>Unavailable Halls</h4>
+				<span class="availability-group-count" id="unavailable-halls-count"></span>
+			</div>
+			<div class="availability-table-wrap">
+				<table class="availability-table">
+					<thead>
+						<tr>
+							<th>Hall Name</th>
+							<th>Hall Code</th>
+							<th>Capacity</th>
+							<th>Facilities</th>
+							<th>Availability</th>
+							<th>Existing Booking</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="unavailable-halls-body"></tbody>
+				</table>
+			</div>
+		</section>
+	</section>
+</div>

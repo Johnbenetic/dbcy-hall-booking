@@ -1,0 +1,93 @@
+<div class="my-hall-bookings">
+	<header class="my-bookings-header">
+		<div>
+			<div class="my-bookings-eyebrow">HALL BOOKING</div>
+			<h2>My Hall Bookings</h2>
+			<p>View and manage your hall booking requests.</p>
+		</div>
+		<button class="btn btn-primary" id="new-hall-booking" type="button">
+			<span class="icon icon-sm" aria-hidden="true">+</span>
+			New Booking Request
+		</button>
+	</header>
+
+	<section class="booking-summary" aria-label="Booking request summary">
+		<div class="summary-card">
+			<span>Total Requests</span>
+			<strong id="summary-total">0</strong>
+		</div>
+		<div class="summary-card">
+			<span>Requested</span>
+			<strong id="summary-requested">0</strong>
+		</div>
+		<div class="summary-card">
+			<span>Approved</span>
+			<strong id="summary-approved">0</strong>
+		</div>
+		<div class="summary-card">
+			<span>Rejected</span>
+			<strong id="summary-rejected">0</strong>
+		</div>
+		<div class="summary-card">
+			<span>Completed</span>
+			<strong id="summary-completed">0</strong>
+		</div>
+	</section>
+
+	<section class="booking-filters" aria-label="Filter bookings">
+		<div class="booking-filter">
+			<label for="filter-booking-date">Booking Date</label>
+			<input class="form-control" id="filter-booking-date" type="date">
+		</div>
+		<div class="booking-filter">
+			<label for="filter-booking-status">Status</label>
+			<select class="form-control" id="filter-booking-status">
+				<option value="">All statuses</option>
+				<option value="Requested">Requested</option>
+				<option value="Approved">Approved</option>
+				<option value="Rejected">Rejected</option>
+				<option value="Cancelled">Cancelled</option>
+				<option value="Completed">Completed</option>
+			</select>
+		</div>
+		<div class="booking-filter">
+			<label for="filter-booking-hall">Hall</label>
+			<select class="form-control" id="filter-booking-hall">
+				<option value="">All halls</option>
+			</select>
+		</div>
+		<button class="btn btn-default clear-booking-filters" id="clear-booking-filters" type="button">
+			Clear Filters
+		</button>
+	</section>
+
+	<div id="my-bookings-message" class="my-bookings-message" role="status" aria-live="polite"></div>
+
+	<section id="my-bookings-table-section" class="my-bookings-table-section">
+		<div class="my-bookings-table-wrap">
+			<table class="my-bookings-table">
+				<thead>
+					<tr>
+						<th>Booking ID</th>
+						<th>Booking Date</th>
+						<th>Hall</th>
+						<th>Start Time</th>
+						<th>End Time</th>
+						<th>Purpose</th>
+						<th>Students</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody id="my-bookings-body"></tbody>
+			</table>
+		</div>
+	</section>
+
+	<section id="my-bookings-empty" class="my-bookings-empty" hidden>
+		<div class="empty-state-icon" aria-hidden="true">▤</div>
+		<h3>No hall booking requests found.</h3>
+		<p>Your requests will appear here once you submit a booking.</p>
+		<button class="btn btn-primary" id="empty-new-hall-booking" type="button">Create New Booking</button>
+	</section>
+</div>
